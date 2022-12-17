@@ -6,7 +6,7 @@ const { Genre } = require("../db.js");
 
 //Creamos la funcion
 
-async function getGenres() {
+async function loadGenres() {
     let apiGenres = await axios.get(GENRES_URL)
         .then(g => {
             let dbGenres = g.data.results.map(async (genre) => {
@@ -20,6 +20,12 @@ async function getGenres() {
         })
 };
 
-module.exports={
+async function getGenres() {
+    let genreList = await Genre.findAll();
+    return genreList;
+}
+
+module.exports = {
+    loadGenres,
     getGenres
 }
