@@ -26,6 +26,5 @@ async function getGenres() {
 }
 
 module.exports = {
-    loadGenres,
     getGenres
 }

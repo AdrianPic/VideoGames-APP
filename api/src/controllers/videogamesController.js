@@ -31,7 +31,7 @@ async function search15Videogames(name) {
 
 async function searchById(id) {
     let videogamesDb = await dbVideogames();
-    let result = videogamesDb.find(game => game.id = id);
+    let result = videogamesDb.find(game => game.id === id);
     if (result) return result
     try {
         let { data } = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}&`)
